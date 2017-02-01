@@ -1,0 +1,2 @@
+class UsersCustom < ApplicationRecord
+end

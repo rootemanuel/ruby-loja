@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<!-- <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -26,4 +26,85 @@
   </div>
 <% end %>
 
-<%= render "users/shared/links" %>
+<%= render "users/shared/links" %> -->
+
+<div class="main-container no-sidebar">
+    <div class="container">
+      <div class="main-content">
+        <div class="page-title">
+          <h3>CADASTRO</h3>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <div class="form-checkout">
+                <h5 class="form-title">CADASTRE ALGUMAS INFORMAÇÕES</h5>
+                <p>
+                <h6 class="form">CPF</h6>
+                <%= f.text_field :cpf, autofocus: true, style: "width: 800px;" %> 
+                </p>
+                <p>
+                <h6 class="form">Nome</h6>
+                <%= f.text_field :nome, style: "width: 800px;" %> 
+                </p>
+                <p>
+                <h6 class="form">Sexo</h6>
+                <%= f.text_field :sexo, style: "width: 800px;" %> 
+                </p>
+                <p>
+                <h6 class="form">Data Nascimento</h6>
+                <%= f.text_field :dtnasc, style: "width: 800px;" %> 
+                </p>
+                 <p>
+                <h6 class="form">Celular</h6>
+                <%= f.text_field :celular, style: "width: 800px;" %> 
+                </p>
+                 <p>
+                <h6 class="form">Telefone</h6>
+                <%= f.text_field :telefone, style: "width: 800px;" %> 
+                </p>
+                <p>
+                <h6 class="form">CEP</h6>
+                <%= f.text_field :cep, style: "width: 800px;" %> 
+                </p>
+                <p>
+                 <h6 class="form">Cidade</h6>
+                <%= f.text_field :cidade, style: "width: 800px;" %> 
+                </p>
+                <p>
+                 <h6 class="form">Bairro</h6>
+                <%= f.text_field :bairro, style: "width: 800px;" %> 
+                </p>
+                <p>
+                 <h6 class="form">Endereço</h6>
+                <%= f.text_field :endereco, style: "width: 800px;" %> 
+                </p>
+                <p>
+                 <h6 class="form">Complemento</h6>
+                <%= f.text_field :complemento, style: "width: 800px;" %> 
+                </p>
+                <p>
+                <h6 class="form">Email</h6>
+                <%= f.email_field :email, style: "width: 800px;" %> 
+                </p>
+                <p>
+                <h6 class="form">Senha</h6>
+                <%= f.password_field :password, autocomplete: "off", style: "width: 800px;" %>
+                </p>
+                <p>
+                <h6 class="form">Confirmação Senha</h6>
+                <%= f.password_field :password_confirmation, autocomplete: "off", style: "width: 800px;" %>
+                </p>
+                <div>
+                  <%= f.submit "CADASTRAR" %>
+                  </div>
+              </div>
+              <% if alert %>
+                <div class="alert-danger"><%= alert %></div>
+              <% end %>
+            <% end %>
+          </div>          
+        </div>
+      </div>
+    </div>
+  </div>
