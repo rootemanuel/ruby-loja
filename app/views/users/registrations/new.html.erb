@@ -29,82 +29,124 @@
 <%= render "users/shared/links" %> -->
 
 <div class="main-container no-sidebar">
-    <div class="container">
-      <div class="main-content">
-        <div class="page-title">
-          <h3>CADASTRO</h3>
-        </div>
-        <div class="row">
-          <div class="col-sm-6">
-            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-              <div class="form-checkout">
-                <h5 class="form-title">CADASTRE ALGUMAS INFORMAÇÕES</h5>
-                <p>
-                <h6 class="form">CPF</h6>
-                <%= f.text_field :cpf, autofocus: true, style: "width: 800px;" %> 
-                </p>
-                <p>
-                <h6 class="form">Nome</h6>
-                <%= f.text_field :nome, style: "width: 800px;" %> 
-                </p>
-                <p>
-                <h6 class="form">Sexo</h6>
-                <%= f.text_field :sexo, style: "width: 800px;" %> 
-                </p>
-                <p>
-                <h6 class="form">Data Nascimento</h6>
-                <%= f.text_field :dtnasc, style: "width: 800px;" %> 
-                </p>
-                 <p>
-                <h6 class="form">Celular</h6>
-                <%= f.text_field :celular, style: "width: 800px;" %> 
-                </p>
-                 <p>
-                <h6 class="form">Telefone</h6>
-                <%= f.text_field :telefone, style: "width: 800px;" %> 
-                </p>
-                <p>
-                <h6 class="form">CEP</h6>
-                <%= f.text_field :cep, style: "width: 800px;" %> 
-                </p>
-                <p>
-                 <h6 class="form">Cidade</h6>
-                <%= f.text_field :cidade, style: "width: 800px;" %> 
-                </p>
-                <p>
-                 <h6 class="form">Bairro</h6>
-                <%= f.text_field :bairro, style: "width: 800px;" %> 
-                </p>
-                <p>
-                 <h6 class="form">Endereço</h6>
-                <%= f.text_field :endereco, style: "width: 800px;" %> 
-                </p>
-                <p>
-                 <h6 class="form">Complemento</h6>
-                <%= f.text_field :complemento, style: "width: 800px;" %> 
-                </p>
-                <p>
-                <h6 class="form">Email</h6>
-                <%= f.email_field :email, style: "width: 800px;" %> 
-                </p>
-                <p>
-                <h6 class="form">Senha</h6>
-                <%= f.password_field :password, autocomplete: "off", style: "width: 800px;" %>
-                </p>
-                <p>
-                <h6 class="form">Confirmação Senha</h6>
-                <%= f.password_field :password_confirmation, autocomplete: "off", style: "width: 800px;" %>
-                </p>
-                <div>
-                  <%= f.submit "CADASTRAR" %>
-                  </div>
-              </div>
-              <% if alert %>
-                <div class="alert-danger"><%= alert %></div>
-              <% end %>
-            <% end %>
-          </div>          
-        </div>
+  <div class="container">
+    <div class="main-content">
+      <div class="page-title">
+        <h3>CADASTRO</h3>
       </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <div class="form-checkout">
+            <h5 class="form-title">CADASTRE ALGUMAS INFORMAÇÕES</h5>
+            <p>
+              <h6 class="form">CPF</h6>
+              <%= f.text_field :cpf, autofocus: true, style: "width: 800px;" %> 
+              <% @user.errors[:cpf].each do |error_message| %>
+              <div class="alert-danger"><%= error_message %></div>
+              <% end %>
+            </p>
+            <p>
+              <h6 class="form">Nome</h6>
+              <%= f.text_field :nome, style: "width: 800px;" %> 
+              <% @user.errors[:nome].each do |error_message| %>
+              <div class="alert-danger"><%= error_message %></div>
+              <% end %>
+            </p>
+            <p>
+              <h6 class="form">Sexo</h6>
+              <%= f.text_field :sexo, style: "width: 800px;" %>
+              <% @user.errors[:sexo].each do |error_message| %>
+              <div class="alert-danger"><%= error_message %></div>
+              <% end %>
+            </p>
+            <p>
+              <h6 class="form">Data Nascimento</h6>
+              <%= f.text_field :dtnasc, style: "width: 800px;" %> 
+              <% @user.errors[:dtnasc].each do |error_message| %>
+              <div class="alert-danger"><%= error_message %></div>
+              <% end %>
+            </p>
+            <p>
+              <h6 class="form">Celular</h6>
+              <%= f.text_field :celular, style: "width: 800px;" %> 
+              <% @user.errors[:celular].each do |error_message| %>
+              <div class="alert-danger"><%= error_message %></div>
+              <% end %>
+            </p>
+            <p>
+              <h6 class="form">Telefone</h6>
+              <%= f.text_field :telefone, style: "width: 800px;" %> 
+              <% @user.errors[:telefone].each do |error_message| %>
+              <div class="alert-danger"><%= error_message %></div>
+              <% end %>
+            </p>
+            <p>
+              <h6 class="form">CEP</h6>
+              <%= f.text_field :cep, style: "width: 800px;" %> 
+              <% @user.errors[:cep].each do |error_message| %>
+              <div class="alert-danger"><%= error_message %></div>
+              <% end %>
+            </p>
+            <p>
+             <h6 class="form">Cidade</h6>
+             <%= f.text_field :cidade, style: "width: 800px;" %> 
+             <% @user.errors[:cidade].each do |error_message| %>
+             <div class="alert-danger"><%= error_message %></div>
+             <% end %>
+           </p>
+           <p>
+             <h6 class="form">Bairro</h6>
+             <%= f.text_field :bairro, style: "width: 800px;" %> 
+             <% @user.errors[:bairro].each do |error_message| %>
+             <div class="alert-danger"><%= error_message %></div>
+             <% end %>
+           </p>
+           <p>
+             <h6 class="form">Endereço</h6>
+             <%= f.text_field :endereco, style: "width: 800px;" %> 
+             <% @user.errors[:endereco].each do |error_message| %>
+             <div class="alert-danger"><%= error_message %></div>
+             <% end %>
+           </p>
+           <p>
+             <h6 class="form">Complemento</h6>
+             <%= f.text_field :complemento, style: "width: 800px;" %> 
+             <% @user.errors[:complemento].each do |error_message| %>
+             <div class="alert-danger"><%= error_message %></div>
+             <% end %>
+           </p>
+           <p>
+            <h6 class="form">Email</h6>
+            <%= f.email_field :email, style: "width: 800px;" %> 
+            <% @user.errors[:email].each do |error_message| %>
+            <div class="alert-danger"><%= error_message %></div>
+            <% end %>
+          </p>
+          <p>
+            <h6 class="form">Senha</h6>
+            <%= f.password_field :password, autocomplete: "off", style: "width: 800px;" %>
+            <% @user.errors[:password].each do |error_message| %>
+            <div class="alert-danger"><%= error_message %></div>
+            <% end %>
+          </p>
+          <p>
+            <h6 class="form">Confirmação Senha</h6>
+            <%= f.password_field :password_confirmation, autocomplete: "off", style: "width: 800px;" %>
+            <% @user.errors[:password_confirmation].each do |error_message| %>
+            <div class="alert-danger"><%= error_message %></div>
+            <% end %>
+          </p>
+          <div>
+            <%= f.submit "CADASTRAR" %>
+          </div>
+        </div>
+        <% if alert %>
+        <div class="alert-danger"><%= alert %></div>
+        <% end %>
+        <% end %>
+      </div>          
     </div>
   </div>
+</div>
+</div>

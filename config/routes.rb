@@ -13,6 +13,6 @@ Rails.application.routes.draw do
       post   "register"  => "users/registrations#create"
 	end
 
-	get "/teste" => "produtos#teste"
-  	root "produtos#produtos"
+	   get "/teste" => "produtos#teste"
+  	 root "produtos#produtos"
 end
